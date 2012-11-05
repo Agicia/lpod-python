@@ -38,7 +38,10 @@ from release import has_git, get_release, get_git_files
 
 if has_git():
     # Make the version.txt file
-    release = get_release()
+    try:
+        release = get_release()
+    except ValueError:
+        release = 'unknown-version'
     open('version.txt', 'w').write(release)
     # Make the MANIFEST file and search for the data
     filenames = get_git_files()
