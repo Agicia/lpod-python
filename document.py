@@ -361,7 +361,9 @@ class odf_document(object):
             close_after = True
         else:
             file = path_or_file
-            name = getattr(_file, 'name')
+            # XXX Bug à corriger
+            #name = getattr(_file, 'name')
+            name = 'image'
         name = name.count('./') and name.split('./')[-1] or name
         # Generate a safe portable name
         uuid = str(uuid4())
